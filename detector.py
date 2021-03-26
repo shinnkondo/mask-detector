@@ -1,3 +1,4 @@
+from announcer import Announcer
 import sys
 import time
 def announce():
@@ -8,9 +9,10 @@ def is_line_ok(line):
     return not "without_mask" in line
 
 class Detector:
-    def __init__(self, time_interval, check_threshold):
+    def __init__(self, time_interval, check_threshold, announcer):
         self.time_interval = time_interval
         self.check_threshold = check_threshold
+        self.announcer = announcer
     
     def watch(self):
         n_ok = 0
@@ -24,7 +26,7 @@ class Detector:
             if time.time() - base_time > self.time_interval:
                 ratio = n_wrong / (n_ok + n_wrong)
                 if ratio > self.check_threshold:
-                    announce()
+                    self.announcer.announce()
                 n_ok = 0
                 n_wrong = 0
                 base_time = time.time()
@@ -32,7 +34,7 @@ class Detector:
 def main():
     CHECK_THRESHOLD = 0.5
     TIME_INTERVAL = 5.0
-    d = Detector(TIME_INTERVAL, CHECK_THRESHOLD)
+    d = Detector(TIME_INTERVAL, CHECK_THRESHOLD, Announcer(sys.argv[1]))
     d.watch()
 
 
