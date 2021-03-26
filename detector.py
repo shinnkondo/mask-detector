@@ -32,16 +32,8 @@ class Detector:
                 base_time = time.time()
 
 def main():
-    CHECK_THRESHOLD = 0.5
-    TIME_INTERVAL = 5.0
-    d = Detector(TIME_INTERVAL, CHECK_THRESHOLD, Announcer(sys.argv[1]))
+    d = Detector(time_interval=2, check_threshold=0.5, announcer=Announcer(sys.argv[1], time_interval=5))
     d.watch()
-
-
-
-
-
-    
 
 if __name__ == '__main__':
     main()

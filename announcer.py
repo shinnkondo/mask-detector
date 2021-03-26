@@ -1,9 +1,16 @@
 import subprocess
+import time
 class Announcer:
-    def __init__(self, file_path):
+    def __init__(self, file_path, time_interval=5):
         self.file_path = file_path
+        self.interval = time_interval
+        self.last_played = 0
         pass
 
     def announce(self):
-        subprocess.run(["play", self.file_path], stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
+        if time.time() - self.last_played < self.interval:
+            return
         print("Please wear a mask")
+        subprocess.run(["play", self.file_path], stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
+        self.last_played = time.time()
+        
