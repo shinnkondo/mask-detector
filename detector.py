@@ -1,9 +1,6 @@
 from announcer import Announcer
 import sys
 import time
-def announce():
-    print("Please wear a mask")
-    pass
 
 def is_line_ok(line):
     return not "without_mask" in line
