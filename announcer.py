@@ -10,7 +10,7 @@ class Announcer:
     def announce(self):
         if time.time() - self.last_played < self.interval:
             return
-        print("Please wear a mask")
+        print("Annoucement: Please wear a mask")
         subprocess.run(["play", self.file_path], stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
         self.last_played = time.time()
         

@@ -16,6 +16,7 @@ class Detector:
         n_wrong = 0
         base_time = time.time()
         for line in sys.stdin:
+            print(line, end="")
             if is_line_ok(line):
                 n_ok += 1
             else:
