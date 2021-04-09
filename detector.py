@@ -2,6 +2,7 @@ from announcer import Announcer
 import sys
 import time
 from collections import Counter
+import argparse
 
 def is_line_ok(line):
     return not "without_mask" in line
@@ -43,7 +44,15 @@ class Detector:
 
 
 def main():
-    d = Detector(time_interval=2, check_threshold=0.3, announcers={WITHOUT_MASK: Announcer(sys.argv[1], time_interval=3), MASK_WORN_INCORRECTLY: Announcer(sys.argv[2], time_interval=3)})
+    parser = argparse.ArgumentParser("Prase stdin, and make annnouncements based on that.")
+    parser.add_argument('file1', metavar="Audio_file_for_without_mask")
+    parser.add_argument('file2', metavar="Audio_file_for_mask_worn_incorrectly")
+    parser.add_argument('--detect-interval', default=2.0, type=float, help='In seconds. For which the detector counts the result.')
+    parser.add_argument('--detect-threshold', default=0.3, type=float, help='In [0, 1]. If the ratio is above this value, announcement will be made')
+    parser.add_argument('--announce-interval', default=5.0, type=float, help='In seconds. The announcer refrain from announce after announcing for this period of time')
+    args = parser.parse_args()
+    d = Detector(time_interval= args.detect_interval, check_threshold=args.detect_threshold,
+    announcers={WITHOUT_MASK: Announcer(args.file1, time_interval=args.announce_interval), MASK_WORN_INCORRECTLY: Announcer(args.file2, time_interval=args.announce_interval)})
     d.watch()
 
 if __name__ == '__main__':
