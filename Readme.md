@@ -10,10 +10,11 @@ sudo apt install sox
 ## Usage
 
 ```
-<yolov5_command> | python detector.py <path_to_audio_file>
+<yolov5_command> | python detector.py <path_to_audio_file_for_without_mask> <path_to_audio_file_for_incorrectly_worn_mask>
 ```
 
-e.g.
+e.g. in yolov5 folder,
 ```
-yolov5$ python detect.py --device cpu --weights ~/Downloads/best.pt --source 0 --img 416 --iou 0.3 --name robo4_epoch300_s_skipped | python ../mask-detector/detector.py ../mask-detector/resources/mask_reminder_EN.ogg 
+python detect.py --weights ~/Downloads/best_2021-04-08.pt --source 0 --img 416 --iou 0.3 --name robo4_epoch300_s_3_labels | python ../mask-detector/detector.py ../mask-detector/resources/mask_reminder_EN.ogg ../mask-detector/resources/mask_reminder_incorrect_EN.ogg^C
+
 ```
