@@ -45,7 +45,7 @@ class Detector:
 
 
 def main():
-    parser = argparse.ArgumentParser("Prase stdin, and make annnouncements based on that.")
+    parser = argparse.ArgumentParser("Parse stdin, and make annnouncements based on that.")
     parser.add_argument('file1', metavar="Audio_file_for_without_mask")
     parser.add_argument('file2', metavar="Audio_file_for_mask_worn_incorrectly")
     parser.add_argument('--detect-interval', default=2.0, type=float, help='In seconds. For which the detector counts the result.')
