@@ -10,7 +10,7 @@ def is_line_ok(line):
 WITHOUT_MASK = "without_mask"
 WITH_MASK = "with_mask"
 MASK_WORN_INCORRECTLY = "incorrectly"
-KEYWORDS = [WITHOUT_MASK, MASK_WORN_INCORRECTLY, WITH_MASK]
+KEYWORDS = [MASK_WORN_INCORRECTLY, WITHOUT_MASK, WITH_MASK] # Announcement priority
 
 class Detector:
     def __init__(self, time_interval, check_threshold, announcers):
@@ -34,6 +34,7 @@ class Detector:
                     ratio = self.counter[keyword] / total
                     if ratio > self.check_threshold and keyword in self.announcers.keys():
                         self.announcers[keyword].announce()
+                        break # Only play the first announcement if mixed
                 self.counter = Counter()
                 base_time = time.time()
 
