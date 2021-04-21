@@ -12,6 +12,8 @@ class Announcer:
             return
         print("Annoucement: Please wear a mask")
 
-        subprocess.Popen(["play", self.file_path], stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
+        arguments = self.file_path.split(' ')
+
+        subprocess.Popen(["play"] + arguments, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
         self.last_played = time.time()
         

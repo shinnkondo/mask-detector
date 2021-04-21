@@ -1,0 +1,1 @@
+python ../mask-detector/detector.py "-v 2 ../mask-detector/resources/without_mask_EN_F.ogg -v 2 ../mask-detector/resources/without_mask_JP_F.ogg" "-v 2 ../mask-detector/resources/mask_worn_incorrectly_EN_F.ogg -v 2 ../mask-detector/resources/mask_worn_incorrectly_JP_F.ogg" 
