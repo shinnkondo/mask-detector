@@ -1,12 +1,32 @@
 # Mask Detector
 Gentry reminds people to wear a mask when peason without a mask is detected.
-Prase stdin, and make annnouncements based on that.
+It parses stdin, and make annnouncements based on that.
 
 ## Requirements
-An audio library is needed.
+### Unix
+
+- Python 3.* is needed.
+- An audio library is needed.
+
+
 ```
 sudo apt install sox
 ```
+
+### Other requirements
+
+- https://github.com/ultralytics/yolov5 : it does the actual detection part based on video input, and output logs for this script. Follow the link for requirements, etc.
+- weight : a configuration file for yolov5. Please download it from [here](https://drive.google.com/file/d/12qNSd6LhdayQVg8pULacW-v4z9ICO3j-/view?usp=sharing)
+
+## Installtaion/Setting
+
+1. Install yolov5
+2. Download a weight file
+3. Clone this repo parallel to yolov5
+
+├── yolov5
+└── mask-detector
+
 
 ## Usage
 
