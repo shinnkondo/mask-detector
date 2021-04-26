@@ -8,7 +8,6 @@ It parses stdin, and make annnouncements based on that.
 - Python 3.* is needed.
 - An audio library is needed.
 
-
 ```
 sudo apt install sox
 ```
@@ -22,11 +21,12 @@ sudo apt install sox
 
 1. Install yolov5
 2. Download a weight file
-3. Clone this repo parallel to yolov5
+3. Clone this repo parallel to yolov5 and make it runnable
 
+```bash
 ├── yolov5
 └── mask-detector
-
+```
 
 ## Usage
 
