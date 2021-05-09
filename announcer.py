@@ -10,7 +10,7 @@ class Announcer:
     def  announce(self):
         if time.time() - self.last_played < self.interval:
             return
-        print("Annoucement: Please wear a mask")
+ #       print("Annoucement: Please wear a mask")
 
         arguments = self.file_path.split(' ')
 

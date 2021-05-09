@@ -3,13 +3,13 @@ Gentry reminds people to wear a mask when peason without a mask is detected.
 It parses stdin, and make annnouncements based on that.
 
 ## Requirements
-### Unix
 
-- Python 3.* is needed.
-- An audio library is needed.
+## Requirements
 
-```
-sudo apt install sox
+Python 3.8 or later with [requirements.txt]. In addition you will need the SOX audio library. To install run:
+```bash
+$ pip install -r requirements.txt
+$ sudo apt install sox
 ```
 
 ### Other requirements

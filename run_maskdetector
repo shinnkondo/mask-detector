@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+
+
+python3 detect.py --weights best_2021-04-08.pt --source 0 --img-size 320 --iou-thres 0.3 --conf-thres 0.6 --nosave --nomaskaudiofile "./resources/without_mask_EN_F.ogg ./resources/without_mask_JP_F.ogg" --wrongmaskaudiofile "./resources/mask_worn_incorrectly_EN_F.ogg ./resources/mask_worn_incorrectly_JP_F.ogg"
