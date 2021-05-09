@@ -30,6 +30,12 @@ $ sudo apt install sox
 
 ## Usage
 
+
+```
+see run_maskdetector script
+```
+
+
 ```
 <yolov5_command> | python detector.py <path_to_audio_file_for_without_mask> <path_to_audio_file_for_incorrectly_worn_mask>
 ```
